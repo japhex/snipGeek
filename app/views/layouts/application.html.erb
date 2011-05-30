@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>snipGeek | Organise yourself bro</title>
+	<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<div id="wrapper">
+		<section id="sticky-bar">
+			<ul>
+				<li id="add-snip"><a href="#">+ SNiP</a></li>
+				<%= render "snips/newsnip" %>
+				<li id="all-snip"><a href="#">#&lt;SNiPS/&gt;</a></li>
+			</ul>
+		</section>
+	</div>
+	<section id="snips">
+		<%= yield %>					
+	</section>
+</body>
+</html>

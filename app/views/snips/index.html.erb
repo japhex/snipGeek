@@ -1,0 +1,23 @@
+<h1>Listing snips</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @snips.each do |snip| %>
+  <tr>
+    <td><%= snip.name %></td>
+    <td><%= link_to 'Show', snip %></td>
+    <td><%= link_to 'Edit', edit_snip_path(snip) %></td>
+    <td><%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Snip', new_snip_path %>
