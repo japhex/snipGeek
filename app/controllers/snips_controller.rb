@@ -44,7 +44,9 @@ class SnipsController < ApplicationController
 
     respond_to do |format|
       if @snip.save
+        @snips = Snip.all
         format.html { redirect_to(@snip, :notice => 'Snip was successfully created.') }
+        format.js
         format.xml  { render :xml => @snip, :status => :created, :location => @snip }
       else
         format.html { render :action => "new" }

@@ -5,8 +5,7 @@ $(document).ready(function(){
 snipGeek = {};
 
 snipGeek.defaults = function(){
-	$('#new_snip').find('#snip_submit').click(function(){
-		$('#new_snip').submit();
-		return false;		
+	$('#add-snip').click(function(){
+		$('#new_snip').fadeIn();
 	});
 }
