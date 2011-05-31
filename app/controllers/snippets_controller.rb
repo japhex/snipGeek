@@ -3,7 +3,8 @@ class SnippetsController < ApplicationController
   # GET /snippets.xml
   def index
     @snippets = Snippet.all
-
+    @snippet = Snippet.new
+    @snip = Snip.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snippets }
@@ -14,7 +15,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/1.xml
   def show
     @snippet = Snippet.find(params[:id])
-
+    @snip = Snip.new
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @snippet }
@@ -25,7 +26,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/new.xml
   def new
     @snippet = Snippet.new
-
+    @snippets = Snippet.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @snippet }
@@ -41,7 +42,8 @@ class SnippetsController < ApplicationController
   # POST /snippets.xml
   def create
     @snippet = Snippet.new(params[:snippet])
-
+    @snippets = Snippet.all
+    @snip = Snip.new
     respond_to do |format|
       if @snippet.save
         format.html { redirect_to(@snippet, :notice => 'Snippet was successfully created.') }

@@ -1,23 +1,20 @@
-<h1>Listing snips</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @snips.each do |snip| %>
-  <tr>
-    <td><%= snip.name %></td>
-    <td><%= link_to 'Show', snip %></td>
-    <td><%= link_to 'Edit', edit_snip_path(snip) %></td>
-    <td><%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<section class="snip">
+	<h2 id="<%= snip.id %>"><%= snip.name %></h2>		
+		<h5>code snippets</h5>
+		<% @snip.snippets.each do |snippet| %>
+			<article class="snippet">
+				<a href="#"><%= snippet.name %></a>
+				<p>video...</p>
+			</article>				
+		<% end %>
+	<%= form_for @snippet do |f| %>
+		<%= f.hidden_field :snip_id, :value => snip.id %>
+	  <%= f.text_field :description %>
+	  <%= f.submit %>
+	<% end %>
+	<%= link_to 'Show', snip %>
+  <%= link_to 'Edit', edit_snip_path(snip) %>
+  <%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %>				
+</section> 
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Snip', new_snip_path %>

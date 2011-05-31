@@ -4,6 +4,7 @@ class SnipsController < ApplicationController
   def index
     @snips = Snip.all
     @snip = Snip.new
+    @snippet = Snippet.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snips }
@@ -41,7 +42,7 @@ class SnipsController < ApplicationController
   # POST /snips.xml
   def create
     @snip = Snip.new(params[:snip])
-
+    @snippet = Snippet.new
     respond_to do |format|
       if @snip.save
         @snips = Snip.all
