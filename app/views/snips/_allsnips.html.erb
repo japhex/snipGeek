@@ -3,13 +3,15 @@
 	<h2 id="<%= snip.id %>"><%= snip.name %></h2>		
 		<h5>code snippets</h5>
 		<% snip.snippets.each do |snippet| %>
-			<%= snippet.content %>				
+			<%= snippet.content %>
+			<%= snippet.description %>				
 		<% end %>
-		<% form_for snip do |snipnew| %>
-		  <% snipnew.fields_for :snippets do |snippet| %>
-		    <%= snippet.label :content %>
-		    <%= snippet.text_field :content %>
-		  <% end %>
+		<% form_for snip do |f| %>
+		  <% f.fields_for :snippets do |builder| %>
+		    <%= builder.text_field :description %>
+				<%= builder.text_field :content %>
+			<% end %>
+			<%= f.submit%>
 		<% end %>	
 </section> 
 <% end %>

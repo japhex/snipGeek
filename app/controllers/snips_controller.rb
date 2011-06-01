@@ -4,10 +4,9 @@ class SnipsController < ApplicationController
   def index
     @snips = Snip.all
     @snip = Snip.new
-   # @snippet = Snippet.new
-   @snips.each do |snip|
-     snip.snippets.build
-  end
+    @snips.each do |snip|
+      snip.snippets.build
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snips }
