@@ -5,11 +5,11 @@
 		<% snip.snippets.each do |snippet| %>
 			<%= snippet.content %>				
 		<% end %>
-		<% form_for snip do |snip| %>
-		  <% snip.fields_for :snippet do |snippet| %>
-		    <%= snippet.text_field :description %>
-		  	<%= snippet.submit %>
+		<% form_for snip do |f| %>
+		  <% f.fields_for :snippets do |builder| %>
+		    <%= builder.text_field :description %>
 			<% end %>
+			<%= f.submit%>
 		<% end %>	
 </section> 
 <% end %>
