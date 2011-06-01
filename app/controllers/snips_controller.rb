@@ -5,6 +5,7 @@ class SnipsController < ApplicationController
     @snips = Snip.all
     @snip = Snip.new
     @snippet = Snippet.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snips }
@@ -42,7 +43,7 @@ class SnipsController < ApplicationController
   # POST /snips.xml
   def create
     @snip = Snip.new(params[:snip])
-    @snippet = Snippet.new
+
     respond_to do |format|
       if @snip.save
         @snips = Snip.all
@@ -61,7 +62,6 @@ class SnipsController < ApplicationController
   def update
     @snip = Snip.find(params[:id])
     @snip.update_attributes params[:snip]
-
     respond_to do |format|
       if @snip.update_attributes(params[:snip])
         format.html { redirect_to(@snip, :notice => 'Snip was successfully updated.') }

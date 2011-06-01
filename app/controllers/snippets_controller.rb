@@ -41,16 +41,13 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.xml
   def create
-    @snippet = Snippet.new(params[:snippet])
-    @snippets = Snippet.all
     @snip = Snip.new
+    @snippet = @snip.snippets.new(params[:snippet])
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully created.') }
-        format.xml  { render :xml => @snippet, :status => :created, :location => @snippet }
+        redirect_to @snip
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @snippet.errors, :status => :unprocessable_entity }
+        redirect_to @snip
       end
     end
   end

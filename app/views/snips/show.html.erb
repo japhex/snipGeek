@@ -3,6 +3,9 @@
 <p>
   <b>Name:</b>
   <%= @snip.name %>
+	<% @snip.snippets.each do |snippet| %>
+		<%= snippet.content %>				
+	<% end %>
 </p>
 
 
