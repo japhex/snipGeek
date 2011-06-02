@@ -10,6 +10,7 @@ snipGeek.fullSnippet = function(){
 		snipGeek.overlay();
 		$('#overlay-content').load(snippetUrl + ' #snips',function(){
 			$(this).find('#snips').addClass('full-snip').removeAttr('id');
+			prettyPrint();
 		});	
 		return false;
 	});

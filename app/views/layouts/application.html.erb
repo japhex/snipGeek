@@ -4,10 +4,11 @@
   <title>snipGeek | Organise yourself bro</title>
 	<link href='http://fonts.googleapis.com/css?family=Kreon|Podkova' rel='stylesheet' type='text/css' />
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+  <%= javascript_include_tag :defaults %>	
+  <%= javascript_include_tag "prettify.js" %>
+	<%= csrf_meta_tag %>
 </head>
-<body>
+<body onload="prettyPrint()">
 	<div id="wrapper">
 		<section id="sticky-bar">
 			<ul>

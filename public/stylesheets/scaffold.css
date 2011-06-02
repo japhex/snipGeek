@@ -35,4 +35,5 @@ body {font-family:'Kreon';width:100%;background:-moz-linear-gradient(top, #3f4c6
 #overlay {position:absolute;width:100%;height:100%;background:#000;opacity:0.8;z-index:3;display:none;top:0;}
 #overlay-content {width:600px;height:400px;background:-moz-linear-gradient(top, #333 0%, #000000 100%);background:-webkit-linear-gradient(top, #333 0%,#000000 100%);border-top-left-radius:10px;border-top-right-radius:2px;border-bottom-right-radius:10px;border-bottom-left-radius:3px;-webkit-box-shadow: 0px 0px 10px #5c5c5c;-moz-box-shadow: 0px 0px 10px #5c5c5c;box-shadow: 0px 0px 10px #000;position:fixed;display:none;z-index:3;overflow:hidden;}
 #overlay-content a#close {position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:10px;text-align:center;display:block;color:#fff;text-decoration:none;font-family:Arial;}
-#overlay-content .full-snip {margin:15px;background:#111;color:#fff;padding:15px;font-family:'Podkova';border:1px solid #444;}
+#overlay-content .full-snip {height:350px;margin:15px;color:#fff;padding:15px;font-family:'Podkova';overflow:auto;}
+#overlay-content pre {border:1px solid #444;}
