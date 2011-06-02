@@ -4,9 +4,10 @@ class SnipsController < ApplicationController
   def index
     @snips = Snip.all
     @snip = Snip.new
-    @snips.each do |snip|
-      snip.snippets.build
-    end
+    #@snips.each do |snip|
+      #snip.snippets.build
+    #end
+    1.times {@snip.snippets.build}
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snips }
@@ -47,8 +48,7 @@ class SnipsController < ApplicationController
 
     respond_to do |format|
       if @snip.save
-        @snips = Snip.all
-        format.html { redirect_to(@snip, :notice => 'Snip was successfully created.') }
+        format.html { redirect_to(snips_url)}
         format.js
         format.xml  { render :xml => @snip, :status => :created, :location => @snip }
       else

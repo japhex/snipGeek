@@ -1,23 +1,13 @@
 <% @snips.each do |snip| %>
 <section class="snip">
-	<h2 id="<%= snip.id %>"><%= snip.name %></h2>		
-		<h5>code snippets</h5>
+	<h2 id="<%= snip.id %>"><%= snip.name %></h2>
 		<% snip.snippets.each do |snippet| %>
-			<%= snippet.content %>
-			<%= snippet.description %>				
+			<article class="snippet">
+				<h3><%= snippet.description %></h3>
+				<p><%= snippet.content %></p>
+				<a href="snippets/<%= snippet.id %>">view snip</a>
+			</article>						
 		<% end %>
-		------------------- CREATE SNIP
-		<% form_for snip do |f| %>
-		  <% f.fields_for :snippets do |builder| %>
-		    <%= builder.text_field :description %>
-				<%= builder.text_field :content %>
-		    <% unless builder.object.new_record? %>
-		      <%= builder.check_box '_destroy' %>
-		      <%= builder.label '_destroy', 'Remove' %>
-		    <% end %>				
-			<% end %>
-			<%= f.submit%>
-		<% end %>	
 		<%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %>
 </section> 
 <% end %>

@@ -1,21 +1,7 @@
 <%= form_for @snip, :remote => true do |f| %>
-  <% if @snip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@snip.errors.count, "error") %> prohibited this snip from being saved:</h2>
-
-      <ul>
-      <% @snip.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_field :name %>
+  <% f.fields_for :snippets do |builder| %>
+    <%= render 'newsnippet', :f => builder %>			
+	<% end %>
+	<%= f.submit%>
 <% end %>
