@@ -1,13 +1,17 @@
-<% @snips.each do |snip| %>
-<section class="snip">
-	<h2 id="<%= snip.id %>"><%= snip.name %></h2>
-		<% snip.snippets.each do |snippet| %>
-			<article class="snippet">
-				<h3><%= snippet.description %></h3>
-				<p><%= snippet.content %></p>
-				<a href="snippets/<%= snippet.id %>">view snip</a>
-			</article>						
+<% if current_user %>
+	<% if current_user.snips.any? %>
+		<% current_user.snips.each do |snip| %>
+		<section class="snip">
+	    <h2 id="<%= snip.id %>"><%= snip.name %></h2>	
+	    <% snip.snippets.each do |snippet| %>
+	    	<article class="snippet">
+	    		<h3><%= snippet.description %></h3>
+	    		<p><%= snippet.content %></p>
+	    		<a href="snippets/<%= snippet.id %>">view snip</a>
+	    	</article>						
+	    <% end %>	
+	    <%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %>
+		</section>			
 		<% end %>
-		<%= link_to 'Destroy', snip, :confirm => 'Are you sure?', :method => :delete %>
-</section> 
+	<% end %>
 <% end %>

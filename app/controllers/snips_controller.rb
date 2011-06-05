@@ -4,6 +4,7 @@ class SnipsController < ApplicationController
   def index
     @snips = Snip.all
     @snip = Snip.new
+    @user = User.new
     #@snips.each do |snip|
       #snip.snippets.build
     #end
