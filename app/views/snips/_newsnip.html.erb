@@ -2,7 +2,7 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
 	<p id="snip-name">
 		<%= f.label :name, 'Language' %>
-		<%= f.select (:name, options_for_select([['HTML','HTML'],['CSS','CSS'],['Javascript','Javascript'],['C#','C#']])) %>
+		<%= f.select (:name, options_for_select([['HTML','HTML'],['CSS','CSS'],['Javascript','Javascript'],['C#','C#'],['VB Script','VB Script'],['Ruby','Ruby'],['PHP','PHP'],['Java','Java'],['C++','C++'],['C','C'],['Python','Python'],['Unix Shell','Unix Shell']])) %>
   </p>
 	<% f.fields_for :snippets do |builder| %>
     <%= render 'newsnippet', :f => builder %>			

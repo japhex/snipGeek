@@ -45,9 +45,42 @@ snipGeek.overlay = function(){
 	});
 }
 
-snipGeek.defaults = function(){
+snipGeek.addSnip = function(){
 	$('#add-snip').click(function(){
-		$('#new_snip').fadeIn();
-	});
+		var snipForm = $('#new_snip').clone();
+		snipGeek.overlay();
+		$('#overlay-content').append(snipForm);
+	});	
+}
+
+snipGeek.editProfile = function(){
+	$('.edit-profile').click(function(){
+		var profileUrl = $(this).attr('href');
+		snipGeek.overlay();
+		$('#overlay-content').load(profileUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('popup-profile').removeAttr('id');
+		});	
+		return false;
+	});	
+}
+
+snipGeek.loginUser = function(){
+	$('.login-user').click(function(){
+		var loginUrl = $(this).attr('href');
+		snipGeek.overlay();
+		$('#overlay-content').load(loginUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('popup-login').removeAttr('id');
+		});	
+		return false;
+	});	
+}
+
+snipGeek.defaults = function(){
+	$('#snips').click(function(){
+		$('#new_snip').fadeOut();
+	});	
 	snipGeek.fullSnippet();
+	snipGeek.addSnip();
+	snipGeek.editProfile();
+	snipGeek.loginUser();
 }
