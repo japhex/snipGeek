@@ -21,7 +21,7 @@
 			  	</li>
 				<% else %>
 			    <li id="login" class="auth">
-						<%= link_to "Register", new_user_path %>
+						<%= link_to "Register", new_user_path, :class => "new-user" %>
 			    	<%= link_to "Login", login_path, :class => "login-user" %>
 			  	</li>
 				<% end %>			

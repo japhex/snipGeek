@@ -8,9 +8,11 @@
 	    	<article class="snippet">
 	    		<h3><%= snippet.description %></h3>
 	    		<p><%= snippet.content %></p>
-	    		<a href="snippets/<%= snippet.id %>"><img src="images/icon_view.png"></a>
-	    	</article>						
-	    <% end %>	
+	    		<a href="snippets/<%= snippet.id %>" class="view-snippet"><img src="images/icon_view.png"></a>
+	    		<%= link_to 'x', snippet, :confirm => 'Delete Snippet - Are you sure?', :method => :delete, :class => "delete-snippet" %>
+				</article>	
+	    <% end %>
+			<a class="new-snippet" href="/snippets/new">+ new snippet</a>
 		</section>			
 		<% end %>
 	<% end %>

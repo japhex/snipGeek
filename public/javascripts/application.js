@@ -4,8 +4,22 @@ $(document).ready(function(){
 
 snipGeek = {};
 
+snipGeek.newSnippet = function(){
+	$('.new-snippet').click(function(){
+		var newSnippetUrl = $(this).attr('href');
+		var parentSnipID = $(this).parent().find('.delete-snip').attr('href');
+		parentSnipID = parentSnipID.replace('/snips/','');
+		snipGeek.overlay();
+		$('#overlay-content').load(newSnippetUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('full-snip').removeAttr('id');
+			$('#new_snippet').prepend('<input type="hidden" value="' + parentSnipID + '" name="snippet[snip_id]" id="snippet_snip_id" />');
+		});	
+		return false;		
+	});
+}
+
 snipGeek.fullSnippet = function(){
-	$('.snippet').find('a').click(function(){
+	$('.snippet').find('.view-snippet').click(function(){
 		var snippetUrl = $(this).attr('href');
 		snipGeek.overlay();
 		$('#overlay-content').load(snippetUrl + ' #snips',function(){
@@ -22,7 +36,7 @@ snipGeek.overlay = function(){
 	var $overlay = $('#overlay');
 	var $overlayContent = $('#overlay-content');
 		
-	topOffset = (topOffset - 400) / 2;
+	topOffset = (topOffset - 600) / 2;
 	leftOffset = (leftOffset - 600) / 2;
 	$overlayContent.css({
 		'left' : leftOffset + 'px',
@@ -49,7 +63,10 @@ snipGeek.addSnip = function(){
 	$('#add-snip').click(function(){
 		var snipForm = $('#new_snip').clone();
 		snipGeek.overlay();
-		$('#overlay-content').append(snipForm);
+		var container = $('<div class="full-snip"></div>');
+		$('#overlay-content').append(container);
+		$(container).append('<h1>New Snip</h1>');
+		$(container).append(snipForm);
 	});	
 }
 
@@ -75,6 +92,17 @@ snipGeek.loginUser = function(){
 	});	
 }
 
+snipGeek.newUser = function(){
+	$('.new-user').click(function(){
+		var registerUrl = $(this).attr('href');
+		snipGeek.overlay();
+		$('#overlay-content').load(registerUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('popup-login').removeAttr('id');
+		});	
+		return false;
+	});	
+}
+
 snipGeek.defaults = function(){
 	$('#snips').click(function(){
 		$('#new_snip').fadeOut();
@@ -83,4 +111,6 @@ snipGeek.defaults = function(){
 	snipGeek.addSnip();
 	snipGeek.editProfile();
 	snipGeek.loginUser();
+	snipGeek.newSnippet();
+	snipGeek.newUser();
 }

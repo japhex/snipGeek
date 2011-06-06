@@ -27,6 +27,7 @@ class SnippetsController < ApplicationController
   def new
     @snippet = Snippet.new
     @snippets = Snippet.all
+    @snip = Snip.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @snippet }
@@ -45,9 +46,9 @@ class SnippetsController < ApplicationController
     @snippet = @snip.snippets.new(params[:snippet])
     respond_to do |format|
       if @snippet.save
-        redirect_to @snip
+        redirect_to root_url
       else
-        redirect_to @snip
+        redirect_to root_url
       end
     end
   end
@@ -75,7 +76,7 @@ class SnippetsController < ApplicationController
     @snippet.destroy
 
     respond_to do |format|
-      format.html { redirect_to(snippets_url) }
+      format.html { redirect_to(root_url) }
       format.xml  { head :ok }
     end
   end
