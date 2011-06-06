@@ -1,8 +1,12 @@
 <% if current_user %>
 	<% if current_user.snips.any? %>
-		<% current_user.snips.each do |snip| %>
-		<section class="snip">
-	    <%= link_to 'x', snip, :confirm => 'Delete Snip - Are you sure?', :method => :delete, :class => "delete-snip" %>
+		<% current_user.snips.each_with_index do |snip,i| %>
+			<% if i % 4 == 0 %>
+				<section class="snip new-line">
+			<% else %>
+				<section class="snip">
+	  	<% end %>  
+			<%= link_to 'x', snip, :confirm => 'Delete Snip - Are you sure?', :method => :delete, :class => "delete-snip" %>
 			<h2 id="<%= snip.id %>"><%= snip.name %></h2>	
 	    <% snip.snippets.each do |snippet| %>
 	    	<article class="snippet">

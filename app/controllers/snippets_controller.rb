@@ -1,6 +1,5 @@
 class SnippetsController < ApplicationController
-  # GET /snippets
-  # GET /snippets.xml
+
   def index
     @snippets = Snippet.all
     @snippet = Snippet.new
@@ -11,8 +10,6 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # GET /snippets/1
-  # GET /snippets/1.xml
   def show
     @snippet = Snippet.find(params[:id])
     @snip = Snip.new
@@ -22,45 +19,33 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # GET /snippets/new
-  # GET /snippets/new.xml
   def new
     @snippet = Snippet.new
-    @snippets = Snippet.all
     @snip = Snip.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @snippet }
-    end
   end
 
-  # GET /snippets/1/edit
   def edit
     @snippet = Snippet.find(params[:id])
   end
 
-  # POST /snippets
-  # POST /snippets.xml
   def create
     @snip = Snip.new
     @snippet = @snip.snippets.new(params[:snippet])
     respond_to do |format|
       if @snippet.save
-        redirect_to root_url
+        format.html { redirect_to(root_url) }
       else
         redirect_to root_url
       end
     end
   end
 
-  # PUT /snippets/1
-  # PUT /snippets/1.xml
   def update
     @snippet = Snippet.find(params[:id])
 
     respond_to do |format|
       if @snippet.update_attributes(params[:snippet])
-        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'Snippet was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

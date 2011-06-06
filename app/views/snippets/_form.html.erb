@@ -1,4 +1,4 @@
-<%= form_for(@snippet) do |f| %>
+<%= form_for @snippet do |f| %>
   <% if @snippet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h2>

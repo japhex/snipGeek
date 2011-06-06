@@ -6,7 +6,7 @@ SnipGeekRails::Application.routes.draw do
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
   resources :users
-  
+  match '*path' => redirect('/')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
