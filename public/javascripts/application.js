@@ -4,40 +4,22 @@ $(document).ready(function(){
 
 snipGeek = {};
 
-snipGeek.newSnippet = function(){
-	$('.new-snippet').click(function(){
-		var newSnippetUrl = $(this).attr('href');
-		var parentSnipID = $(this).parent().find('.delete-snip').attr('href');
-		parentSnipID = parentSnipID.replace('/snips/','');
-		snipGeek.overlay();
-		$('#overlay-content').load(newSnippetUrl + ' #snips',function(){
-			$(this).find('#snips').addClass('full-snip').removeAttr('id');
-			$('#new_snippet').prepend('<input type="hidden" value="' + parentSnipID + '" name="snippet[snip_id]" id="snippet_snip_id" />');
-		});	
-		return false;		
-	});
-}
-
-snipGeek.fullSnippet = function(){
-	$('.snippet').find('.view-snippet').click(function(){
-		var snippetUrl = $(this).attr('href');
-		snipGeek.overlay();
-		$('#overlay-content').load(snippetUrl + ' #snips',function(){
-			$(this).find('#snips').addClass('full-snip').removeAttr('id');
-			prettyPrint();
-		});	
-		return false;
-	});
-}
-
-snipGeek.overlay = function(){
+snipGeek.overlay = function(optionalWidth){
 	var topOffset = $(window).height();
 	var leftOffset = $(window).width();
 	var $overlay = $('#overlay');
 	var $overlayContent = $('#overlay-content');
-		
+	if (optionalWidth)
+	{
+		leftOffset = (leftOffset - 900) / 2;
+		$overlayContent.css({'width':'900px'});
+	}
+	else
+	{
+		leftOffset = (leftOffset - 600) / 2;
+		$overlayContent.css({'width':'600px'});
+	}
 	topOffset = (topOffset - 600) / 2;
-	leftOffset = (leftOffset - 600) / 2;
 	$overlayContent.css({
 		'left' : leftOffset + 'px',
 		'top' : topOffset + 'px'
@@ -56,6 +38,32 @@ snipGeek.overlay = function(){
 		$(this).parent().fadeOut('slow',function(){
 			$(this).empty();
 		});
+	});
+}
+
+snipGeek.newSnippet = function(){
+	$('.new-snippet').click(function(){
+		var newSnippetUrl = $(this).attr('href');
+		var parentSnipID = $(this).parent().find('.delete-snip').attr('href');
+		parentSnipID = parentSnipID.replace('/snips/','');
+		snipGeek.overlay();
+		$('#overlay-content').load(newSnippetUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('full-snip').removeAttr('id');
+			$('#new_snippet').prepend('<input type="hidden" value="' + parentSnipID + '" name="snippet[snip_id]" id="snippet_snip_id" />');
+		});	
+		return false;		
+	});
+}
+
+snipGeek.fullSnippet = function(){
+	$('.snippet').find('.view-snippet').click(function(){
+		var snippetUrl = $(this).attr('href');
+		snipGeek.overlay(true);
+		$('#overlay-content').load(snippetUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('full-snip').removeAttr('id');
+			prettyPrint();
+		});	
+		return false;
 	});
 }
 
@@ -103,6 +111,46 @@ snipGeek.newUser = function(){
 	});	
 }
 
+snipGeek.editSnippet = function(){
+	$('.edit-snippet').click(function(){
+		var editSnippetUrl = $(this).attr('href');
+		snipGeek.overlay();
+		$('#overlay-content').load(editSnippetUrl + ' #snips',function(){
+			$(this).find('#snips').addClass('popup-edit-snippet').removeAttr('id');
+		});	
+		return false;
+	});	
+}
+
+snipGeek.validation = function(){
+	$('input[type="submit"]').live('click',function(){
+		var $element = $(this);
+		var input = $('.full-snip').find('input[type="text"]');
+		var textarea = $('.full-snip').find('textarea');
+		if (input.val() === '' || textarea.val() === '')
+		{
+			if (input.val() === '')
+			{
+				input.addClass('invalid');
+			}
+			else
+			{
+				input.removeClass('invalid');			
+			}
+		
+			if (textarea.val() === '')
+			{
+				textarea.addClass('invalid');			
+			}
+			else
+			{
+				textarea.removeClass('invalid');			
+			}
+			return false;
+		}
+	});
+}
+
 snipGeek.defaults = function(){
 	$('#snips').click(function(){
 		$('#new_snip').fadeOut();
@@ -113,4 +161,6 @@ snipGeek.defaults = function(){
 	snipGeek.loginUser();
 	snipGeek.newSnippet();
 	snipGeek.newUser();
+	snipGeek.editSnippet();
+	snipGeek.validation();
 }

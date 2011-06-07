@@ -36,18 +36,24 @@ body {font-family:'Kreon';width:100%;background:-moz-linear-gradient(top, #3f4c6
 #snips .snippet a {position:absolute;right:0;top:1px;}
 #snips .snippet p {color:#999;height:12px;margin-top:13px;font-size:0.8em;font-family:'Podkova';text-overflow: ellipsis;-webkit-text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
 #snips .new-snippet {color:#8a99c7;text-decoration:none;}
+#snips .snippet .edit-snippet {text-shadow: 0px 0px 3px #000000;display:none;right:-4px;top:58px;text-decoration:none;color:#fff;font-weight:normal;}
+#snips .snippet:hover .edit-snippet {display:block;}
 
 #overlay {position:absolute;width:100%;height:100%;background:#000;opacity:0.8;z-index:3;display:none;top:0;}
 #overlay-content {width:600px;height:600px;background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5));background:-webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);border-top-left-radius:10px;border-top-right-radius:2px;border-bottom-right-radius:10px;border-bottom-left-radius:3px;-webkit-box-shadow: 0px 0px 10px #5c5c5c;-moz-box-shadow: 0px 0px 10px #5c5c5c;box-shadow: 0px 0px 10px #000;position:fixed;display:none;z-index:3;overflow:hidden;}
 #overlay-content a#close {position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:10px;text-align:center;display:block;color:#fff;text-decoration:none;font-family:Arial;}
-#overlay-content .full-snip, #overlay-content .popup-login, #overlay-content .popup-profile {padding:15px;}
+#overlay-content .full-snip, #overlay-content .popup-login, #overlay-content .popup-profile, #overlay-content .popup-edit-snippet {padding:15px;}
 #overlay-content pre {border:1px solid #444;word-wrap:break-word;height:495px;overflow-y:scroll;}
 #overlay-content h1 {font-weight:normal;text-transform:lowercase;font-size:2em;color:#000;}
 #overlay-content form {width:330px;margin:20px auto 0 auto;}
+#overlay-content .edit_snippet {width:525px;}
+#overlay-content .edit_snippet textarea {width:510px;height:380px;}
 #overlay-content label {display:block;margin-top:10px;color:#000;}
 #overlay-content #user_session_remember_me {float:left;height:20px;width:20px;position:relative;top:4px;}
 #overlay-content .remember-me {float:left;}
 #user_session_submit, #user_submit {margin-top:15px;}
 #overlay-content textarea {padding-left:10px;border-radius:5px;border:1px solid #999;}
-.popup-profile input, .popup-login input, .full-snip input {font-size:1.2em;padding-left:10px;height:30px;width:300px;border-radius:5px;border:1px solid #999;}
+.popup-profile input, .popup-login input, .full-snip input, .popup-edit-snippet input {font-size:1.2em;padding-left:10px;height:30px;width:300px;border-radius:5px;border:1px solid #999;}
 .popup-profile #user_submit {margin-top:20px;}
+
+.invalid {border:1px solid red !important;}

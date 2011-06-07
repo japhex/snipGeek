@@ -7,7 +7,5 @@
 	<% f.fields_for :snippets do |builder| %>
     <%= render 'newsnippet', :f => builder %>			
 	<% end %>
-	<p id="actions">
-		<%= f.submit%>
-	</p>
+	<%= f.submit%>
 <% end %>
