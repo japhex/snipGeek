@@ -14,14 +14,15 @@ html, body {height:100%;}
 body {font-family:'Kreon';width:100%;background:-moz-linear-gradient(top, #3f4c6b 0%, #252a3f 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#3f4c6b), color-stop(100%,#252a3f));background:-webkit-linear-gradient(top, #3f4c6b 0%,#252a3f 100%);}
 #wrapper {width:980px;margin:0 auto;}
 #sticky-bar {position:fixed;top:-7px;width:980px;height:45px;border-radius:10px;-moz-box-shadow:0px 0px 10px #000000;box-shadow:0px 0px 10px #000000;background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000));background:-webkit-linear-gradient(top, #45484d 0%,#000000 100%);}
-#sticky-bar ul {overflow:hidden;}
-#sticky-bar li {display:block;float:left;border-bottom-left-radius: 10px;}
+#sticky-bar ul {overflow:hidden;color:#fff;}
+#sticky-bar li {color:#8A99C7;padding:19px 5px;display:block;float:left;border-bottom-left-radius: 10px;}
+#sticky-bar li strong {font-weight:normal;color:#fff;}
 #sticky-bar li a {color:#fff;text-decoration:none;display:block;padding:19px 10px 10px 10px;}
-#sticky-bar #add-snip {background:-moz-linear-gradient(top, #707070 0%, #3f3f3f 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#707070), color-stop(100%,#3f3f3f));background:-webkit-linear-gradient(top, #707070 0%,#3f3f3f 100%);}
+#sticky-bar #add-snip {margin-right:10px;padding:0;background:-moz-linear-gradient(top, #707070 0%, #3f3f3f 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#707070), color-stop(100%,#3f3f3f));background:-webkit-linear-gradient(top, #707070 0%,#3f3f3f 100%);}
 #overlay-content form {overflow:hidden;width:525px;}
 
 #sticky-bar #new_snip {display:none;}
-#sticky-bar .auth {float:right;overflow:hidden;}
+#sticky-bar .auth {float:right;overflow:hidden;padding:0;}
 #sticky-bar .auth a {float:right;}
 
 #snips {padding:60px 0;overflow:hidden;}
@@ -56,4 +57,4 @@ body {font-family:'Kreon';width:100%;background:-moz-linear-gradient(top, #3f4c6
 .popup-profile input, .popup-login input, .full-snip input, .popup-edit-snippet input {font-size:1.2em;padding-left:10px;height:30px;width:300px;border-radius:5px;border:1px solid #999;}
 .popup-profile #user_submit {margin-top:20px;}
 
-.invalid {border:1px solid red !important;}
+.invalid {border:3px solid red !important;}

@@ -14,6 +14,11 @@
 			<ul>
 			  <% if current_user %>
 					<li id="add-snip"><a href="#">+ SNiP</a></li>
+					<li>logged in <strong><%= current_user.login_count %></strong> times</li>
+					<li>|</li>
+					<li>last logged in <strong><%= current_user.last_login_at.strftime("%m/%d/%Y") %></strong></li>
+					<li>|</li>
+					<li>you currently have <strong><%= current_user.snips.count %></strong> snips!</li>
 					<%= render "snips/newsnip" %>			    
 					<li id="logout" class="auth">
 						<%= link_to "Logout", logout_path %>
