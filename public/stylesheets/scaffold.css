@@ -45,16 +45,22 @@ body {font-family:'Kreon';width:100%;background:-moz-linear-gradient(top, #3f4c6
 #overlay-content a#close {position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:10px;text-align:center;display:block;color:#fff;text-decoration:none;font-family:Arial;}
 #overlay-content .full-snip, #overlay-content .popup-login, #overlay-content .popup-profile, #overlay-content .popup-edit-snippet {padding:15px;}
 #overlay-content pre {border:1px solid #444;word-wrap:break-word;height:495px;overflow-y:scroll;}
-#overlay-content h1 {font-weight:normal;text-transform:lowercase;font-size:2em;color:#000;}
-#overlay-content form {width:330px;margin:20px auto 0 auto;}
+#overlay-content h1, #login h1, #register-user h1 {font-weight:normal;text-transform:lowercase;font-size:2em;color:#000;}
+#overlay-content form, #login form, #register-user form {width:330px;margin:20px auto 0 auto;}
 #overlay-content .edit_snippet {width:525px;}
 #overlay-content .edit_snippet textarea {width:510px;height:380px;}
-#overlay-content label {display:block;margin-top:10px;color:#000;}
-#overlay-content #user_session_remember_me {float:left;height:20px;width:20px;position:relative;top:4px;}
-#overlay-content .remember-me {float:left;}
+#overlay-content label, #login label, #register-user label {display:block;margin-top:10px;color:#000;}
+#overlay-content #user_session_remember_me, #login #user_session_remember_me {float:left;height:20px;width:20px;position:relative;top:4px;}
+#overlay-content .remember-me, #login .remember-me {float:left;}
 #user_session_submit, #user_submit {margin-top:15px;}
 #overlay-content textarea {padding-left:10px;border-radius:5px;border:1px solid #999;}
-.popup-profile input, .popup-login input, .full-snip input, .popup-edit-snippet input {font-size:1.2em;padding-left:10px;height:30px;width:300px;border-radius:5px;border:1px solid #999;}
+.popup-profile input, .popup-login input, .full-snip input, .popup-edit-snippet input, #login input, #register-user input {font-size:1.2em;padding-left:10px;height:30px;width:300px;border-radius:5px;border:1px solid #999;}
 .popup-profile #user_submit {margin-top:20px;}
 
+#snips #login, #snips #register-user {position:relative;width:600px;height:400px;background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5));background:-webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);border-top-left-radius:10px;border-top-right-radius:2px;border-bottom-right-radius:10px;border-bottom-left-radius:3px;-webkit-box-shadow: 0px 0px 10px #5c5c5c;-moz-box-shadow: 0px 0px 10px #5c5c5c;box-shadow: 0px 0px 10px #000;margin:0 auto;padding:15px;}
+#snips #login #error_explanation, #snips #register-user #error_explanation {position:absolute;right:-223px;width:352px;top:39px;background: -moz-linear-gradient(top, #fdfdfd 0%, #ececec 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#ececec));background:-webkit-linear-gradient(top, #fdfdfd 0%,#ececec 100%);padding:12px;}
+#snips #login #error_explanation {background: -moz-linear-gradient(top, #fdfdfd 0%, #f8f8f8 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f8f8f8));background:-webkit-linear-gradient(top, #fdfdfd 0%,#f8f8f8 100%);}
+#snips #login #error_explanation h2, #snips #register-user #error_explanation h2 {font-weight:normal;color:red;font-size:1.2em;position:relative;width:400px;left:-30px;margin-bottom:10px;} 
+#snips #login #error_explanation h2 {left:10px;}
+#snips #login #error_explanation li, #snips #register-user #error_explanation li {background:#E89292;color:#fff;padding:8px 0 4px 8px;}
 .invalid {border:3px solid red !important;}

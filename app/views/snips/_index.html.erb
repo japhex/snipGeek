@@ -6,14 +6,14 @@
 			<% else %>
 				<section class="snip">
 	  	<% end %>  
-			<%= link_to 'x', snip, :remote => true, :confirm => 'Delete Snip - Are you sure?', :method => :delete, :class => "delete-snip" %>
+			<%= link_to 'x', snip, :confirm => 'Delete Snip - Are you sure?', :method => :delete, :class => "delete-snip" %>
 			<h2 id="<%= snip.id %>"><%= snip.name %></h2>	
 	    <% snip.snippets.each do |snippet| %>
 	    	<article class="snippet">
 	    		<h3><%= snippet.description %></h3>
 	    		<p><%= snippet.content %></p>
 	    		<a href="snippets/<%= snippet.id %>" class="view-snippet"><img src="images/icon_view.png"></a>
-	    		<%= link_to 'x', snippet, :remote => true, :confirm => 'Delete Snippet - Are you sure?', :method => :delete, :class => "delete-snippet" %>
+	    		<%= link_to 'x', snippet, :confirm => 'Delete Snippet - Are you sure?', :method => :delete, :class => "delete-snippet" %>
 					<%= link_to 'Edit', edit_snippet_path(snippet), :class => 'edit-snippet' %>
 				</article>	
 	    <% end %>

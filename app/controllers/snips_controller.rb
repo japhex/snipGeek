@@ -84,6 +84,7 @@ class SnipsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(snips_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

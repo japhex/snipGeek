@@ -26,7 +26,7 @@ class SnippetsController < ApplicationController
 
   def edit
     @snippet = Snippet.find(params[:id])
-    @snip = Snip.new
+    @snip = Snip.new 
   end
 
   def create
@@ -35,6 +35,7 @@ class SnippetsController < ApplicationController
     respond_to do |format|
       if @snippet.save
         format.html { redirect_to(root_url) }
+        format.js
       else
         redirect_to root_url
       end
@@ -64,6 +65,7 @@ class SnippetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(root_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

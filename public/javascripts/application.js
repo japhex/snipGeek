@@ -42,7 +42,7 @@ snipGeek.overlay = function(optionalWidth){
 }
 
 snipGeek.newSnippet = function(){
-	$('.new-snippet').click(function(){
+	$('.new-snippet').live('click',function(){
 		var newSnippetUrl = $(this).attr('href');
 		var parentSnipID = $(this).parent().find('.delete-snip').attr('href');
 		parentSnipID = parentSnipID.replace('/snips/','');
@@ -56,7 +56,7 @@ snipGeek.newSnippet = function(){
 }
 
 snipGeek.fullSnippet = function(){
-	$('.snippet').find('.view-snippet').click(function(){
+	$('.snippet').find('.view-snippet').live('click', function(){
 		var snippetUrl = $(this).attr('href');
 		snipGeek.overlay(true);
 		$('#overlay-content').load(snippetUrl + ' #snips',function(){
@@ -68,7 +68,7 @@ snipGeek.fullSnippet = function(){
 }
 
 snipGeek.addSnip = function(){
-	$('#add-snip').click(function(){
+	$('#add-snip').live('click', function(){
 		var snipForm = $('#new_snip').clone();
 		snipGeek.overlay();
 		var container = $('<div class="full-snip"></div>');
@@ -91,28 +91,38 @@ snipGeek.editProfile = function(){
 
 snipGeek.loginUser = function(){
 	$('.login-user').click(function(){
-		var loginUrl = $(this).attr('href');
-		snipGeek.overlay();
-		$('#overlay-content').load(loginUrl + ' #snips',function(){
-			$(this).find('#snips').addClass('popup-login').removeAttr('id');
-		});	
+		if ($('#new_user_session').length > 0){
+
+		}
+		else{			
+			var loginUrl = $(this).attr('href');
+			snipGeek.overlay();
+			$('#overlay-content').load(loginUrl + ' #snips',function(){
+				$(this).find('#snips').addClass('popup-login').removeAttr('id');
+			});	
+		}
 		return false;
 	});	
 }
 
 snipGeek.newUser = function(){
 	$('.new-user').click(function(){
-		var registerUrl = $(this).attr('href');
-		snipGeek.overlay();
-		$('#overlay-content').load(registerUrl + ' #snips',function(){
-			$(this).find('#snips').addClass('popup-login').removeAttr('id');
-		});	
+		if ($('#new_user').length > 0){
+
+		}
+		else{		
+			var registerUrl = $(this).attr('href');
+			snipGeek.overlay();
+			$('#overlay-content').load(registerUrl + ' #snips',function(){
+				$(this).find('#snips').addClass('popup-login').removeAttr('id');
+			});	
+		}
 		return false;
 	});	
 }
 
 snipGeek.editSnippet = function(){
-	$('.edit-snippet').click(function(){
+	$('.edit-snippet').live('click', function(){
 		var editSnippetUrl = $(this).attr('href');
 		snipGeek.overlay();
 		$('#overlay-content').load(editSnippetUrl + ' #snips',function(){
@@ -155,6 +165,13 @@ snipGeek.defaults = function(){
 	$('#snips').click(function(){
 		$('#new_snip').fadeOut();
 	});	
+	// Form is loaded via AJAX, no need for javascript bound to controller
+	$('.edit_snippet #snippet_submit').live('click', function(){
+		$('#overlay-content').prev().fadeOut();
+		$('#overlay-content').fadeOut('slow',function(){
+			$('#overlay-content').empty();
+		});		
+	});
 	snipGeek.fullSnippet();
 	snipGeek.addSnip();
 	snipGeek.editProfile();

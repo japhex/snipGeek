@@ -1,4 +1,4 @@
-<%= form_for @snip do |f| %>
+<%= form_for @snip, :remote => true do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 	<p id="snip-name">
 		<%= f.label :name, 'Language' %>
