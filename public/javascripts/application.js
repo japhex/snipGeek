@@ -84,6 +84,7 @@ snipGeek.editProfile = function(){
 		snipGeek.overlay();
 		$('#overlay-content').load(profileUrl + ' #snips',function(){
 			$(this).find('#snips').addClass('popup-profile').removeAttr('id');
+			$(this).find('h1').html('edit profile');
 		});	
 		return false;
 	});	
