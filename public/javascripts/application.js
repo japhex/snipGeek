@@ -31,7 +31,10 @@ snipGeek.overlay = function(optionalWidth){
 		$(this).fadeOut();
 		$(this).next().fadeOut('slow',function(){
 			$(this).empty();
-		});		
+			$overlayContent.removeClass(function() {
+				$(this).attr('class');
+			});		
+		});	
 	});
 	$overlayContent.find('#close').click(function(){
 		$(this).parent().prev().fadeOut();
@@ -82,7 +85,7 @@ snipGeek.editProfile = function(){
 	$('.edit-profile').click(function(){
 		var profileUrl = $(this).attr('href');
 		snipGeek.overlay();
-		$('#overlay-content').load(profileUrl + ' #snips',function(){
+		$('#overlay-content').addClass('register-height').load(profileUrl + ' #snips',function(){
 			$(this).find('#snips').addClass('popup-profile').removeAttr('id');
 			$(this).find('h1').html('edit profile');
 		});	
@@ -98,7 +101,7 @@ snipGeek.loginUser = function(){
 		else{			
 			var loginUrl = $(this).attr('href');
 			snipGeek.overlay();
-			$('#overlay-content').load(loginUrl + ' #snips',function(){
+			$('#overlay-content').addClass('login-height').load(loginUrl + ' #snips',function(){
 				$(this).find('#snips').addClass('popup-login').removeAttr('id');
 			});	
 		}
@@ -114,7 +117,7 @@ snipGeek.newUser = function(){
 		else{		
 			var registerUrl = $(this).attr('href');
 			snipGeek.overlay();
-			$('#overlay-content').load(registerUrl + ' #snips',function(){
+			$('#overlay-content').addClass('register-height').load(registerUrl + ' #snips',function(){
 				$(this).find('#snips').addClass('popup-login').removeAttr('id');
 			});	
 		}

@@ -38,6 +38,24 @@
 	<section id="snips">
 		<%= yield %>		
 	</section>
+	<% if !current_user %>
+	<div id="welcome">
+		<h1><strong>Hi!</strong> Welcome to snipGeek</h1>
+		<p>snipGeek is an online dashboard that allows you to create an account and help manage code snippets.</p>
+		<p>
+			One day I realised that every time I started a new project and had to painfully crawl through previous
+			projects to find different snippets of code to do different things, wouldn't it be awesome just to have
+			a dashboard of everything I need in one place? Bam. snipGeek.
+		</p>
+		<p>
+			Feedback is always, always appreciated and encouraged. If you find this site useful, or have any issues
+			please feel free to give me a shout. You can contact me via email at 
+			<a href="MAILTO:j@japhex.net">j@japhex.net</a> or alternatively I'm on Twitter 
+			<a href="http://www.twitter.com/japhex">@Japhex</a>...oh and <a href="http://about.me/japhex">about.me</a>
+			...enjoy dudes.
+		</p>
+	</div>	
+	<% end %>
 	<section id="overlay">
 	</section>
 	<section id="overlay-content">
