@@ -96,7 +96,6 @@ snipGeek.editProfile = function(){
 snipGeek.loginUser = function(){
 	$('.login-user').click(function(){
 		if ($('#new_user_session').length > 0){
-
 		}
 		else{			
 			var loginUrl = $(this).attr('href');
@@ -112,7 +111,6 @@ snipGeek.loginUser = function(){
 snipGeek.newUser = function(){
 	$('.new-user').click(function(){
 		if ($('#new_user').length > 0){
-
 		}
 		else{		
 			var registerUrl = $(this).attr('href');
@@ -176,6 +174,9 @@ snipGeek.defaults = function(){
 			$('#overlay-content').empty();
 		});		
 	});
+	if ($('#register-user').length > 0 || $('#login').length > 0){
+		$('#welcome').hide();
+	}
 	snipGeek.fullSnippet();
 	snipGeek.addSnip();
 	snipGeek.editProfile();

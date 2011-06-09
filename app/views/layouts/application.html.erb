@@ -18,8 +18,10 @@
 					<li>|</li>
 					<li>logged in <strong><%= current_user.login_count %></strong> times</li>
 					<li>|</li>
+					<% if current_user.login_count > 1 %>
 					<li>last logged in <strong><%= current_user.last_login_at.strftime("%d/%m/%Y") %></strong></li>
 					<li>|</li>
+					<% end %>
 					<li>you currently have <strong><%= current_user.snips.count %></strong> snips!</li>
 					<%= render "snips/newsnip" %>			    
 					<li id="logout" class="auth">
@@ -27,7 +29,7 @@
 						<%= link_to "Edit Profile", edit_user_path(:current), :class => "edit-profile" %>
 			  	</li>
 				<% else %>
-			    <li id="login" class="auth">
+			    <li id="login-trigger" class="auth">
 						<%= link_to "Register", new_user_path, :class => "new-user" %>
 			    	<%= link_to "Login", login_path, :class => "login-user" %>
 			  	</li>
